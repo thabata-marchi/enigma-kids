@@ -1,7 +1,25 @@
+# macOS
 .DS_Store
+.AppleDouble
+.LSOverride
 
-# Arquivos de modelo de IA (podem ser grandes; adicione manualmente se quiser versionar)
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+ehthumbs.db
+
+# Node (if tooling is ever added)
+node_modules/
+npm-debug.log*
+
+# AI model files — kept in version control intentionally (~1.7 MB total).
+# The game needs them to run offline. Uncomment below ONLY if you switch
+# to hosting the model on an external URL instead of this repo.
 # model/*.bin
 # model/*.json
-# Descomente as linhas acima se não quiser subir o modelo ao GitHub.
-# Se o modelo estiver no GitHub Pages, o jogo vai carregá-lo normalmente.
+# model/metadata.json

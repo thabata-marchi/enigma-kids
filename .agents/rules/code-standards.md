@@ -1,55 +1,55 @@
-# Padrões de Código — Enigma Kids
+# Code Standards — Enigma Kids
 
-## Princípios gerais
-- **Código limpo**: nomes expressivos, sem abreviações crípticas
-- **SOLID adaptado para JS/DOM**: responsabilidade única por função, funções abertas para extensão
-- **Sem over-engineering**: o jogo é um HTML único; não adicionar camadas desnecessárias enquanto isso for adequado
-- **Sem comentários óbvios**: comentar apenas o *porquê*, nunca o *o quê*
+## General principles
+- **Clean code**: expressive names, no cryptic abbreviations
+- **SOLID adapted for JS/DOM**: single responsibility per function, functions open for extension
+- **No over-engineering**: the game is a single HTML file; do not add unnecessary layers while that holds
+- **No obvious comments**: comment only the *why*, never the *what*
 
-## Organização do código (arquivo atual)
+## Code organization (current file)
 
 ```
 index.html
-├── <style>          — tokens de design (variáveis CSS) e componentes visuais
-├── <body>           — estrutura HTML das salas e UI
+├── <style>          — design tokens (CSS variables) and visual components
+├── <body>           — HTML structure for rooms and UI
 └── <script>
-    ├── ASSETS       — imagens base64 (dados puros, sem lógica)
-    ├── STR          — strings i18n (dados puros, sem lógica)
-    ├── t(key)       — resolução de idioma
-    ├── Estado       — variáveis de estado por sala (state1, state2, state3)
-    ├── Motor        — loop(), updateCamera(), getObstacles()
-    ├── Interações   — checkInteractionsRoom*(), open*Modal(), answer*()
+    ├── ASSETS       — base64 images (pure data, no logic)
+    ├── STR          — i18n strings (pure data, no logic)
+    ├── t(key)       — language resolution
+    ├── State        — per-room state variables (state1, state2, state3)
+    ├── Engine       — loop(), updateCamera(), getObstacles()
+    ├── Interactions — checkInteractionsRoom*(), open*Modal(), answer*()
     ├── UI           — renderModal(), showHint(), setInstruction()
-    └── Input        — teclado, joystick touch
+    └── Input        — keyboard, touch joystick
 ```
 
-## Nomenclatura
-| Contexto | Convenção |
+## Naming
+| Context | Convention |
 |---|---|
-| Funções | camelCase (`openMathModal`, `answerEmoji`) |
-| Constantes globais | UPPER_SNAKE_CASE (`WORLD_W`, `ASSETS`) |
-| Variáveis de estado | camelCase com prefixo descritivo (`state1`, `joyVec`) |
-| IDs HTML | kebab-case (`modal-overlay`, `joy-stick`) |
-| Classes CSS | kebab-case (`.modal-card`, `.hud-round-btn`) |
+| Functions | camelCase (`openMathModal`, `answerEmoji`) |
+| Global constants | UPPER_SNAKE_CASE (`WORLD_W`, `ASSETS`) |
+| State variables | camelCase with descriptive prefix (`state1`, `joyVec`) |
+| HTML IDs | kebab-case (`modal-overlay`, `joy-stick`) |
+| CSS classes | kebab-case (`.modal-card`, `.hud-round-btn`) |
 
 ## CSS
-- Usar variáveis CSS (`--blue`, `--red`, `--yellow`) para todas as cores — nunca valores literais
-- Layout posicional via `position:absolute` (mundo de jogo 2D)
-- `z-index` por camadas: mundo (0) → objetos (10) → HUD (30) → joystick (40) → modal (50) → telas (60)
+- Use CSS variables (`--blue`, `--red`, `--yellow`) for all colors — never literal values
+- Positional layout via `position:absolute` (2D game world)
+- `z-index` by layer: world (0) → objects (10) → HUD (30) → joystick (40) → modal (50) → screens (60)
 
-## Funções
-- Uma função = uma responsabilidade
-- Funções de interação com sala: `checkInteractionsRoom{N}` para detecção, funções `open*` para UI
-- Funções de resposta: `answer*(value, btn)` — recebem o valor e o elemento para feedback visual
-- Não misturar lógica de estado com lógica de renderização
+## Functions
+- One function = one responsibility
+- Room interaction functions: `checkInteractionsRoom{N}` for detection, `open*` functions for UI
+- Answer functions: `answer*(value, btn)` — receive the value and element for visual feedback
+- Do not mix state logic with rendering logic
 
-## Estado de jogo
-- Estado por sala em objetos separados: `state1`, `state2`, `state3`
-- Nunca mutar estado de outra sala que não a ativa
-- Transição de sala via `enterRoom{N}()` — função responsável por reset e setup
+## Game state
+- Per-room state in separate objects: `state1`, `state2`, `state3`
+- Never mutate the state of a room other than the active one
+- Room transition via `enterRoom{N}()` — responsible for reset and setup
 
-## Code Smells a evitar
-- `innerHTML` com dados do usuário sem sanitização (usar apenas com strings internas controladas)
-- Funções com mais de ~40 linhas sem justificativa
-- Seleção de DOM repetida em loop — cachear referências
-- Magic numbers sem nome — preferir constante nomeada
+## Code smells to avoid
+- `innerHTML` with unsanitized user data (use only with controlled internal strings)
+- Functions longer than ~40 lines without justification
+- Repeated DOM selection inside a loop — cache references
+- Magic numbers without a name — prefer named constants
