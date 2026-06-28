@@ -3,6 +3,10 @@
 A 2D educational game for children that runs entirely in the browser.
 No installation, no server, no dependencies — just open the HTML file.
 
+## Play Online
+
+🎮 **[Play now → thabata-marchi.github.io/enigma-kids](https://thabata-marchi.github.io/enigma-kids/)**
+
 ## Screenshots
 
 <p align="center">
