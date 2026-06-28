@@ -365,6 +365,10 @@ button.brick {
 }
 
 /* --- Tela de sucesso --- */
+#screen-success .title-brick {
+  font-size: clamp(1.2rem, 5vw, 1.8rem);
+}
+
 #screen-success {
   position: absolute;
   inset: 0;

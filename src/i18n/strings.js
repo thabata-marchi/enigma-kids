@@ -92,18 +92,20 @@ const STR = {
       }
     ],
 
-    // Banco de variações — Sala 2: inglês (emoji → palavra)
+    // Banco de variações — Sala 2: inglês (emoji → palavra) — vocabulário A1 para 7-8 anos
     emoji_bank: [
-      { emoji: "🐈", choices: ["DOG","CAT","SUN"],   answer: "CAT",  right: "PERFEITO! CAT SIGNIFICA GATO EM INGLÊS! PARTE 2 CONCLUÍDA! AGORA VÁ EM DIREÇÃO À PORTA..." },
-      { emoji: "🌞", choices: ["SUN","MOON","STAR"],  answer: "SUN",  right: "ISSO! SUN SIGNIFICA SOL EM INGLÊS! PARTE 2 CONCLUÍDA! AGORA VÁ EM DIREÇÃO À PORTA..." },
-      { emoji: "🐕", choices: ["CAT","DOG","BIRD"],   answer: "DOG",  right: "MUITO BEM! DOG SIGNIFICA CACHORRO EM INGLÊS! PARTE 2 CONCLUÍDA! AGORA VÁ EM DIREÇÃO À PORTA..." },
-      { emoji: "🌳", choices: ["TREE","LEAF","ROCK"], answer: "TREE", right: "ÓTIMO! TREE SIGNIFICA ÁRVORE EM INGLÊS! PARTE 2 CONCLUÍDA! AGORA VÁ EM DIREÇÃO À PORTA..." },
-      { emoji: "🐟", choices: ["BIRD","FISH","FROG"], answer: "FISH", right: "PERFEITO! FISH SIGNIFICA PEIXE EM INGLÊS! PARTE 2 CONCLUÍDA! AGORA VÁ EM DIREÇÃO À PORTA..." },
-      { emoji: "🌧️", choices: ["SNOW","WIND","RAIN"], answer: "RAIN", right: "CERTO! RAIN SIGNIFICA CHUVA EM INGLÊS! PARTE 2 CONCLUÍDA! AGORA VÁ EM DIREÇÃO À PORTA..." },
-      { emoji: "🍎", choices: ["PEAR","APPLE","PLUM"], answer: "APPLE", right: "ISSO! APPLE SIGNIFICA MAÇÃ EM INGLÊS! PARTE 2 CONCLUÍDA! AGORA VÁ EM DIREÇÃO À PORTA..." },
-      { emoji: "🏠", choices: ["HOUSE","SCHOOL","PARK"], answer: "HOUSE", right: "MUITO BEM! HOUSE SIGNIFICA CASA EM INGLÊS! PARTE 2 CONCLUÍDA! AGORA VÁ EM DIREÇÃO À PORTA..." },
-      { emoji: "📚", choices: ["BOOK","DESK","LAMP"],  answer: "BOOK",  right: "ÓTIMO! BOOK SIGNIFICA LIVRO EM INGLÊS! PARTE 2 CONCLUÍDA! AGORA VÁ EM DIREÇÃO À PORTA..." },
-      { emoji: "⭐", choices: ["MOON","CLOUD","STAR"], answer: "STAR",  right: "PERFEITO! STAR SIGNIFICA ESTRELA EM INGLÊS! PARTE 2 CONCLUÍDA! AGORA VÁ EM DIREÇÃO À PORTA..." }
+      { emoji: "🐈", choices: ["DOG","CAT","PIG"],      answer: "CAT",    right: "PERFEITO! CAT É GATO EM INGLÊS! 🐈 PARTE 2 CONCLUÍDA! AGORA VÁ EM DIREÇÃO À PORTA..." },
+      { emoji: "🐕", choices: ["CAT","COW","DOG"],      answer: "DOG",    right: "ISSO! DOG É CACHORRO EM INGLÊS! 🐕 PARTE 2 CONCLUÍDA! AGORA VÁ EM DIREÇÃO À PORTA..." },
+      { emoji: "🐷", choices: ["HEN","PIG","COW"],      answer: "PIG",    right: "MUITO BEM! PIG É PORCO EM INGLÊS! 🐷 PARTE 2 CONCLUÍDA! AGORA VÁ EM DIREÇÃO À PORTA..." },
+      { emoji: "🐸", choices: ["FISH","FROG","BIRD"],   answer: "FROG",   right: "ÓTIMO! FROG É SAPO EM INGLÊS! 🐸 PARTE 2 CONCLUÍDA! AGORA VÁ EM DIREÇÃO À PORTA..." },
+      { emoji: "🐦", choices: ["FROG","FISH","BIRD"],   answer: "BIRD",   right: "CERTO! BIRD É PÁSSARO EM INGLÊS! 🐦 PARTE 2 CONCLUÍDA! AGORA VÁ EM DIREÇÃO À PORTA..." },
+      { emoji: "🍎", choices: ["PEAR","BANANA","APPLE"],answer: "APPLE",  right: "PERFEITO! APPLE É MAÇÃ EM INGLÊS! 🍎 PARTE 2 CONCLUÍDA! AGORA VÁ EM DIREÇÃO À PORTA..." },
+      { emoji: "🍌", choices: ["APPLE","BANANA","PEAR"],answer: "BANANA", right: "ISSO! BANANA É BANANA EM INGLÊS TAMBÉM! 🍌 PARTE 2 CONCLUÍDA! AGORA VÁ EM DIREÇÃO À PORTA..." },
+      { emoji: "🎈", choices: ["BALL","KITE","BALLOON"],answer: "BALLOON",right: "MUITO BEM! BALLOON É BALÃO EM INGLÊS! 🎈 PARTE 2 CONCLUÍDA! AGORA VÁ EM DIREÇÃO À PORTA..." },
+      { emoji: "⚽", choices: ["BAG","BALL","HAT"],     answer: "BALL",   right: "ÓTIMO! BALL É BOLA EM INGLÊS! ⚽ PARTE 2 CONCLUÍDA! AGORA VÁ EM DIREÇÃO À PORTA..." },
+      { emoji: "🎒", choices: ["BAG","BOX","CUP"],      answer: "BAG",    right: "PERFEITO! BAG É MOCHILA EM INGLÊS! 🎒 PARTE 2 CONCLUÍDA! AGORA VÁ EM DIREÇÃO À PORTA..." },
+      { emoji: "🌞", choices: ["MOON","STAR","SUN"],    answer: "SUN",    right: "ISSO! SUN É SOL EM INGLÊS! 🌞 PARTE 2 CONCLUÍDA! AGORA VÁ EM DIREÇÃO À PORTA..." },
+      { emoji: "❤️", choices: ["BLUE","RED","GREEN"],   answer: "RED",    right: "MUITO BEM! RED É VERMELHO EM INGLÊS! ❤️ PARTE 2 CONCLUÍDA! AGORA VÁ EM DIREÇÃO À PORTA..." }
     ],
 
     emoji_title: "QUE PALAVRA EM INGLÊS COMBINA COM ESTE DESENHO?",
@@ -133,18 +135,20 @@ const STR = {
     anagram_title: "REORGANIZE AS LETRAS PARA FORMAR UMA PALAVRA EM INGLÊS. TOQUE EM 2 LETRAS PARA TROCAR DE LUGAR.",
     anagram_right: "MUITO BEM! ENIGMA 2 CONCLUÍDO. AGORA VÁ AO ÚLTIMO ENIGMA.",
 
-    // Banco de variações — Sala 3: anagrama (palavras temáticas)
+    // Banco de variações — Sala 3: anagrama — vocabulário A1 para 7-8 anos (cores, animais, frutas, objetos)
     anagram_bank: [
-      { answer: "BOOK",  scrambled: ["O","B","K","O"], hint: "É O QUE VOCÊ ENCONTRA NA BIBLIOTECA!" },
-      { answer: "PAGE",  scrambled: ["G","A","P","E"], hint: "É UMA FOLHA DO LIVRO!" },
-      { answer: "WORD",  scrambled: ["R","O","W","D"], hint: "LETRAS QUE FORMAM UM SENTIDO!" },
-      { answer: "READ",  scrambled: ["E","R","D","A"], hint: "O QUE VOCÊ FAZ COM UM LIVRO!" },
-      { answer: "TALE",  scrambled: ["L","T","E","A"], hint: "É UMA HISTÓRIA CONTADA!" },
-      { answer: "POEM",  scrambled: ["O","P","M","E"], hint: "UM TEXTO COM RIMA!" },
-      { answer: "NOTE",  scrambled: ["O","N","T","E"], hint: "UMA MENSAGEM ESCRITA!" },
-      { answer: "MAPS",  scrambled: ["A","M","S","P"], hint: "AJUDA A ENCONTRAR O CAMINHO!" },
-      { answer: "EPIC",  scrambled: ["I","E","C","P"], hint: "UMA HISTÓRIA GRANDIOSAMENTE INCRÍVEL!" },
-      { answer: "LIST",  scrambled: ["I","L","T","S"], hint: "UMA SEQUÊNCIA DE ITENS ESCRITOS!" }
+      { answer: "CAT",    scrambled: ["T","A","C"],       hint: "É UM ANIMAL PELUDO QUE FAZ MIAU! 🐈" },
+      { answer: "DOG",    scrambled: ["G","O","D"],       hint: "É O MELHOR AMIGO DAS PESSOAS! 🐕" },
+      { answer: "PIG",    scrambled: ["G","P","I"],       hint: "UM ANIMAL ROSA QUE DIZ ÓINC! 🐷" },
+      { answer: "HEN",    scrambled: ["E","H","N"],       hint: "UMA AVE QUE BOTA OVOS! 🐔" },
+      { answer: "COW",    scrambled: ["O","C","W"],       hint: "DAÁ LEITE E VIVE NA FAZENDA! 🐄" },
+      { answer: "RED",    scrambled: ["D","E","R"],       hint: "A COR DA MAÇÃ E DO CORAÇÃO! ❤️" },
+      { answer: "BLUE",   scrambled: ["U","L","E","B"],   hint: "A COR DO CÉU E DO MAR! 🔵" },
+      { answer: "SUN",    scrambled: ["N","U","S"],       hint: "ELE BRILHA NO CÉU TODO DIA! 🌞" },
+      { answer: "EGG",    scrambled: ["G","E","G"],       hint: "A GALINHA COLOCA ESTE ALIMENTO! 🥚" },
+      { answer: "BAG",    scrambled: ["G","B","A"],       hint: "VOCÊ USA ELA PARA IR À ESCOLA! 🎒" },
+      { answer: "HAT",    scrambled: ["T","H","A"],       hint: "VOCÊ COLOCA NA CABEÇA PARA SE PROTEGER DO SOL! 🎩" },
+      { answer: "CUP",    scrambled: ["P","C","U"],       hint: "VOCÊ BEBE ÁGUA OU SUCO NELE! 🥤" }
     ],
 
     star_title: "LIGUE OS PONTOS EM ORDEM PARA DESENHAR A FORMA MÁGICA!",
@@ -299,18 +303,20 @@ const STR = {
       }
     ],
 
-    // Variation bank — Room 2: English (emoji → word)
+    // Variation bank — Room 2: English (emoji → word) — A1 vocabulary for ages 7-8
     emoji_bank: [
-      { emoji: "🐈", choices: ["DOG","CAT","SUN"],    answer: "CAT",   right: "PERFECT! PART 2 COMPLETE! NOW HEAD TOWARD THE DOOR..." },
-      { emoji: "🌞", choices: ["SUN","MOON","STAR"],   answer: "SUN",   right: "RIGHT! SUN! PART 2 COMPLETE! NOW HEAD TOWARD THE DOOR..." },
-      { emoji: "🐕", choices: ["CAT","DOG","BIRD"],    answer: "DOG",   right: "GREAT! DOG! PART 2 COMPLETE! NOW HEAD TOWARD THE DOOR..." },
-      { emoji: "🌳", choices: ["TREE","LEAF","ROCK"],  answer: "TREE",  right: "NICE! TREE! PART 2 COMPLETE! NOW HEAD TOWARD THE DOOR..." },
-      { emoji: "🐟", choices: ["BIRD","FISH","FROG"],  answer: "FISH",  right: "PERFECT! FISH! PART 2 COMPLETE! NOW HEAD TOWARD THE DOOR..." },
-      { emoji: "🌧️", choices: ["SNOW","WIND","RAIN"],  answer: "RAIN",  right: "CORRECT! RAIN! PART 2 COMPLETE! NOW HEAD TOWARD THE DOOR..." },
-      { emoji: "🍎", choices: ["PEAR","APPLE","PLUM"], answer: "APPLE", right: "YES! APPLE! PART 2 COMPLETE! NOW HEAD TOWARD THE DOOR..." },
-      { emoji: "🏠", choices: ["HOUSE","SCHOOL","PARK"], answer: "HOUSE", right: "GREAT! HOUSE! PART 2 COMPLETE! NOW HEAD TOWARD THE DOOR..." },
-      { emoji: "📚", choices: ["BOOK","DESK","LAMP"],  answer: "BOOK",  right: "NICE! BOOK! PART 2 COMPLETE! NOW HEAD TOWARD THE DOOR..." },
-      { emoji: "⭐", choices: ["MOON","CLOUD","STAR"], answer: "STAR",  right: "PERFECT! STAR! PART 2 COMPLETE! NOW HEAD TOWARD THE DOOR..." }
+      { emoji: "🐈", choices: ["DOG","CAT","PIG"],      answer: "CAT",    right: "PERFECT! CAT! 🐈 PART 2 COMPLETE! NOW HEAD TOWARD THE DOOR..." },
+      { emoji: "🐕", choices: ["CAT","COW","DOG"],      answer: "DOG",    right: "GREAT! DOG! 🐕 PART 2 COMPLETE! NOW HEAD TOWARD THE DOOR..." },
+      { emoji: "🐷", choices: ["HEN","PIG","COW"],      answer: "PIG",    right: "NICE! PIG! 🐷 PART 2 COMPLETE! NOW HEAD TOWARD THE DOOR..." },
+      { emoji: "🐸", choices: ["FISH","FROG","BIRD"],   answer: "FROG",   right: "AWESOME! FROG! 🐸 PART 2 COMPLETE! NOW HEAD TOWARD THE DOOR..." },
+      { emoji: "🐦", choices: ["FROG","FISH","BIRD"],   answer: "BIRD",   right: "CORRECT! BIRD! 🐦 PART 2 COMPLETE! NOW HEAD TOWARD THE DOOR..." },
+      { emoji: "🍎", choices: ["PEAR","BANANA","APPLE"],answer: "APPLE",  right: "PERFECT! APPLE! 🍎 PART 2 COMPLETE! NOW HEAD TOWARD THE DOOR..." },
+      { emoji: "🍌", choices: ["APPLE","BANANA","PEAR"],answer: "BANANA", right: "YES! BANANA! 🍌 PART 2 COMPLETE! NOW HEAD TOWARD THE DOOR..." },
+      { emoji: "🎈", choices: ["BALL","KITE","BALLOON"],answer: "BALLOON",right: "GREAT! BALLOON! 🎈 PART 2 COMPLETE! NOW HEAD TOWARD THE DOOR..." },
+      { emoji: "⚽", choices: ["BAG","BALL","HAT"],     answer: "BALL",   right: "NICE! BALL! ⚽ PART 2 COMPLETE! NOW HEAD TOWARD THE DOOR..." },
+      { emoji: "🎒", choices: ["BAG","BOX","CUP"],      answer: "BAG",    right: "PERFECT! BAG! 🎒 PART 2 COMPLETE! NOW HEAD TOWARD THE DOOR..." },
+      { emoji: "🌞", choices: ["MOON","STAR","SUN"],    answer: "SUN",    right: "RIGHT! SUN! 🌞 PART 2 COMPLETE! NOW HEAD TOWARD THE DOOR..." },
+      { emoji: "❤️", choices: ["BLUE","RED","GREEN"],   answer: "RED",    right: "GREAT! RED! ❤️ PART 2 COMPLETE! NOW HEAD TOWARD THE DOOR..." }
     ],
 
     emoji_title: "WHICH WORD MATCHES THIS PICTURE?",
@@ -340,18 +346,20 @@ const STR = {
     anagram_title: "REARRANGE THE LETTERS TO FORM A WORD. TAP 2 LETTERS TO SWAP THEM.",
     anagram_right: "WELL DONE! PUZZLE 2 COMPLETE. NOW GO TO THE LAST PUZZLE.",
 
-    // Variation bank — Room 3: anagram (library-themed words)
+    // Variation bank — Room 3: anagram — A1 vocabulary for ages 7-8 (colors, animals, fruits, objects)
     anagram_bank: [
-      { answer: "BOOK",  scrambled: ["O","B","K","O"], hint: "IT'S WHAT YOU FIND IN A LIBRARY!" },
-      { answer: "PAGE",  scrambled: ["G","A","P","E"], hint: "A SINGLE SHEET IN A BOOK!" },
-      { answer: "WORD",  scrambled: ["R","O","W","D"], hint: "LETTERS THAT MAKE MEANING!" },
-      { answer: "READ",  scrambled: ["E","R","D","A"], hint: "WHAT YOU DO WITH A BOOK!" },
-      { answer: "TALE",  scrambled: ["L","T","E","A"], hint: "A STORY BEING TOLD!" },
-      { answer: "POEM",  scrambled: ["O","P","M","E"], hint: "A TEXT WITH RHYMES!" },
-      { answer: "NOTE",  scrambled: ["O","N","T","E"], hint: "A SHORT WRITTEN MESSAGE!" },
-      { answer: "MAPS",  scrambled: ["A","M","S","P"], hint: "HELPS YOU FIND THE WAY!" },
-      { answer: "EPIC",  scrambled: ["I","E","C","P"], hint: "A GRAND AND AMAZING STORY!" },
-      { answer: "LIST",  scrambled: ["I","L","T","S"], hint: "A SEQUENCE OF WRITTEN ITEMS!" }
+      { answer: "CAT",    scrambled: ["T","A","C"],       hint: "A FLUFFY ANIMAL THAT SAYS MEOW! 🐈" },
+      { answer: "DOG",    scrambled: ["G","O","D"],       hint: "PEOPLE'S BEST FRIEND! 🐕" },
+      { answer: "PIG",    scrambled: ["G","P","I"],       hint: "A PINK ANIMAL THAT SAYS OINK! 🐷" },
+      { answer: "HEN",    scrambled: ["E","H","N"],       hint: "A BIRD THAT LAYS EGGS! 🐔" },
+      { answer: "COW",    scrambled: ["O","C","W"],       hint: "IT GIVES MILK AND LIVES ON A FARM! 🐄" },
+      { answer: "RED",    scrambled: ["D","E","R"],       hint: "THE COLOR OF AN APPLE AND A HEART! ❤️" },
+      { answer: "BLUE",   scrambled: ["U","L","E","B"],   hint: "THE COLOR OF THE SKY AND THE SEA! 🔵" },
+      { answer: "SUN",    scrambled: ["N","U","S"],       hint: "IT SHINES IN THE SKY EVERY DAY! 🌞" },
+      { answer: "EGG",    scrambled: ["G","E","G"],       hint: "A HEN LAYS THIS EVERY DAY! 🥚" },
+      { answer: "BAG",    scrambled: ["G","B","A"],       hint: "YOU CARRY IT TO SCHOOL! 🎒" },
+      { answer: "HAT",    scrambled: ["T","H","A"],       hint: "YOU WEAR IT ON YOUR HEAD! 🎩" },
+      { answer: "CUP",    scrambled: ["P","C","U"],       hint: "YOU DRINK WATER OR JUICE FROM IT! 🥤" }
     ],
 
     star_title: "CONNECT THE DOTS IN ORDER TO DRAW THE MAGIC SHAPE!",
