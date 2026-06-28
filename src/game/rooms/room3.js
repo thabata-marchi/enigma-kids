@@ -60,9 +60,11 @@ function openAnagramModal() {
   _anagramAnswer = item.answer;
   anagramLetters = item.scrambled.slice();
   anagramSelected = null;
+  // A dica vem sempre do banco EN — a palavra é inglesa independente do idioma do jogo
+  const hintEN = drawFromBankLang('anagram_bank', 'en').hint;
   renderModal(`
     <div class="modal-mascot"><img src="${ASSETS.BOOK}" style="width:60px;"></div>
-    <div class="modal-text">${t('anagram_title')}<br><small style="opacity:0.7">${item.hint}</small></div>
+    <div class="modal-text">${t('anagram_title')}<br><small style="opacity:0.7">${hintEN}</small></div>
     <div id="anagram-row" style="display:flex; justify-content:center; gap:10px; margin-bottom:10px;"></div>`);
   renderAnagramRow();
 }
@@ -96,63 +98,50 @@ function clickLetter(i) {
   }
 }
 
-/* --- Enigma liga-pontos Sala 3 (forma sorteada do banco) --- */
+/* --- Enigma 3: desenho livre com IA (fallback: liga-pontos) --- */
+
+/*
+   currentStarPoints é mantido aqui pois openStarPuzzleFallback()
+   em ai-puzzle.js precisa escrevê-lo antes de ser usado por
+   drawStarCanvasFB() / clickStarDotFB().
+*/
 let currentStarPoints = [];
 
 function openStarPuzzle() {
-  modalOpenLock = true;
-  currentTriggerId = 'console-star';
-  const item = drawFromBank('star_bank');
-  currentStarPoints = item.points;
-  window._starDoneMsg = item.done;
-  let html = `<div class="modal-mascot"><img src="${ASSETS.GEAR}" style="width:60px;"></div>
-    <div class="modal-text">${t('star_title')}</div>
-    <div style="position:relative; width:260px; height:240px; margin:0 auto;">
-      <canvas id="star-canvas" width="260" height="240" style="position:absolute;top:0;left:0;"></canvas>`;
-  currentStarPoints.forEach((p, i) => {
-    html += `<div class="dot" id="star-dot-${i}" style="left:${p.x}%; top:${p.y}%; width:26px; height:26px; font-size:0.75rem;" onclick="clickStarDot(${i})">${i + 1}</div>`;
-  });
-  html += `</div>`;
-  renderModal(html);
-  window._starExpected = 0;
-  drawStarCanvas();
+  /* Escolhe a forma esperada aleatoriamente do banco star_bank.
+     Pega apenas o campo `name` traduzido para a chave de classe IA. */
+  const shapeKey = _pickAIShape();
+  const onSuccess = () => {
+    state3.star = true;
+    document.getElementById('console-star').classList.add('glow-soft');
+  };
+  openDrawShapePuzzle(shapeKey, onSuccess);
 }
 
-function drawStarCanvas(done) {
-  const canvas = document.getElementById('star-canvas');
-  const ctx = canvas.getContext('2d');
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.strokeStyle = '#2B2421'; ctx.lineWidth = 4; ctx.lineCap = 'round';
-  const n = window._starExpected;
-  if (n > 0) {
-    ctx.beginPath();
-    for (let i = 0; i < n; i++) {
-      const p = currentStarPoints[i];
-      const x = p.x / 100 * canvas.width, y = p.y / 100 * canvas.height;
-      if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
-    }
-    if (done) { const p0 = currentStarPoints[0]; ctx.lineTo(p0.x / 100 * canvas.width, p0.y / 100 * canvas.height); }
-    ctx.stroke();
-  }
-}
+/*
+   Mapeia nomes do star_bank (PT/EN) para as classes do modelo IA.
+   Se quiser adicionar formas, acrescente entradas aqui e retreine
+   o modelo no Teachable Machine com a nova classe.
+*/
+const _SHAPE_NAME_TO_CLASS = {
+  // PT
+  'ESTRELA DE 5 PONTAS': 'star', 'TRIÂNGULO': 'triangle', 'PENTÁGONO': 'pentagon',
+  'LOSANGO': 'diamond', 'SETA': 'arrow', 'HEXÁGONO': 'hexagon',
+  'CRUZ': 'cross', 'CASA': 'house',
+  // EN
+  '5-POINTED STAR': 'star', 'TRIANGLE': 'triangle', 'PENTAGON': 'pentagon',
+  'DIAMOND': 'diamond', 'ARROW': 'arrow', 'HEXAGON': 'hexagon',
+  'CROSS': 'cross', 'HOUSE': 'house'
+};
 
-function clickStarDot(i) {
-  if (i === window._starExpected) {
-    document.getElementById('star-dot-' + i).classList.add('done');
-    window._starExpected++;
-    const done = window._starExpected === currentStarPoints.length;
-    drawStarCanvas(done);
-    if (done) {
-      setTimeout(() => {
-        renderModal(`<div class="modal-mascot"><img src="${ASSETS.LUMI}" style="width:80px;"></div><div class="modal-text">${window._starDoneMsg}</div><div class="choices"><button class="brick choice-btn" onclick="closeModal()">${t('continueBtn')}</button></div>`);
-        state3.star = true;
-        document.getElementById('console-star').classList.add('glow-soft');
-      }, 500);
-    }
-  } else {
-    document.getElementById('star-dot-' + i).classList.add('shake');
-    setTimeout(() => document.getElementById('star-dot-' + i).classList.remove('shake'), 350);
-  }
+/* Subconjunto de formas habilitadas para sorteio. Limitado a círculo e
+   quadrado porque são as mais distintas e fáceis de reconhecer com o
+   modelo atual. Reintroduzir outras formas após retreinar o modelo. */
+const _AI_ENABLED = ['circle', 'square'];
+
+function _pickAIShape() {
+  const idx = Math.floor(Math.random() * _AI_ENABLED.length);
+  return _AI_ENABLED[idx];
 }
 
 /* --- Diálogo com o dragão (empatia) --- */

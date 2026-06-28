@@ -30,3 +30,14 @@ function drawFromBank(bankKey) {
   const idx  = pickRandom(bankKey, bank.length);
   return bank[idx];
 }
+
+/**
+ * Retorna o mesmo item mais recentemente sorteado para bankKey,
+ * mas lendo de um idioma específico — útil para buscar a versão EN
+ * de um item sorteado em PT (ex: dica em inglês do anagrama).
+ */
+function drawFromBankLang(bankKey, forceLang) {
+  const idx = _lastPick[bankKey];
+  if (idx === undefined) return drawFromBank(bankKey);
+  return STR[forceLang][bankKey][idx];
+}

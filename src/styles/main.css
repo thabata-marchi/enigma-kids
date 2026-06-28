@@ -185,17 +185,17 @@ button.brick {
 /* --- Barra de instrução --- */
 #instruction-bar {
   position: absolute;
-  top: 80px;
+  top: 100px;
   left: 50%;
   transform: translateX(-50%);
   background: var(--panel);
   padding: 10px 44px 10px 22px;
-  max-width: 90%;
+  max-width: 70%;
   text-align: center;
   font-size: 1.05rem;
   font-weight: 700;
   color: var(--ink);
-  z-index: 20;
+  z-index: 35;
 }
 
 #instruction-bar.hidden { display: none; }
@@ -347,6 +347,9 @@ button.brick {
   text-align: center;
   border: 5px solid var(--ink);
   border-radius: 14px;
+  max-width: 80%;
+  margin: 0 24px;
+  box-sizing: border-box;
 }
 
 .lang-row { display: flex; gap: 20px; }

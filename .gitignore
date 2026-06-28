@@ -1,1 +1,7 @@
 .DS_Store
+
+# Arquivos de modelo de IA (podem ser grandes; adicione manualmente se quiser versionar)
+# model/*.bin
+# model/*.json
+# Descomente as linhas acima se não quiser subir o modelo ao GitHub.
+# Se o modelo estiver no GitHub Pages, o jogo vai carregá-lo normalmente.

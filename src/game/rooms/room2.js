@@ -14,7 +14,7 @@ function checkInteractionsRoom2() {
 
   if (!state2.dots    && suppressedId !== 'console-dots'  && near('console-dots'))             { openDotsPuzzle();    return; }
   if (state2.dots && !state2.emoji  && suppressedId !== 'console-emoji' && near('console-emoji')) { openEmojiPuzzle();   return; }
-  if (state2.dots && state2.emoji && !state2.stranger && suppressedId !== 'stranger' && near('stranger', 90)) { openStrangerEvent(); return; }
+  if (state2.dots && state2.emoji && !state2.stranger && suppressedId !== 'stranger' && near('stranger', 130)) { openStrangerEvent(); return; }
   if (state2.keyFound && !state2.doorReached && near('door2', 80)) {
     state2.doorReached = true;
     setInstruction(t('doorReached2'));
@@ -112,17 +112,24 @@ function openStrangerEvent() {
   modalOpenLock = true;
   currentTriggerId = 'stranger';
   renderModal(`
-    <div class="modal-mascot"><img src="${ASSETS.SHADOW}" style="width:70px;"></div>
+    <div class="modal-mascot"><img src="${ASSETS.SHADOW}" style="width:110px;"></div>
     <div class="modal-text">${t('talk_prompt')}</div>
     <div class="choices">
       <button class="brick choice-btn" style="background:var(--green);" onclick="openStrangerDialogue()">${t('talk_btn')}</button>
-      <button class="brick choice-btn" onclick="closeModalX()">${t('walk_away_btn')}</button>
+      <button class="brick choice-btn" style="background:var(--green);" onclick="walkAwayStranger()">${t('walk_away_btn')}</button>
     </div>`);
+}
+
+function walkAwayStranger() {
+  state2.stranger = true;
+  document.getElementById('stranger').style.display = 'none';
+  spawnGear3();
+  renderModal(`<div class="modal-mascot"><img src="${ASSETS.LUMI}" style="width:80px;"></div><div class="modal-text">${t('walk_away_right')}</div><div class="choices"><button class="brick choice-btn" onclick="finishRoom2()">${t('continueBtn')}</button></div>`);
 }
 
 function openStrangerDialogue() {
   renderModal(`
-    <div class="modal-mascot"><img src="${ASSETS.SHADOW}" style="width:70px;"></div>
+    <div class="modal-mascot"><img src="${ASSETS.SHADOW}" style="width:110px;"></div>
     <div class="modal-text">${t('stranger_intro')}<br><br>${t('stranger_text')}</div>
     <div class="choices">
       <button class="brick choice-btn" style="background:var(--red);"   onclick="strangerChoice(false)">${t('stranger_choice1')}</button>

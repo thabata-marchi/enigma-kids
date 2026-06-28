@@ -3,11 +3,23 @@
    ============================================================ */
 
 let lastInstructionMsg = '';
+let _instrAutoHideTimer = null;
 
 function setInstruction(msg) {
   lastInstructionMsg = msg;
   document.getElementById('instruction-text').textContent = msg;
   document.getElementById('instruction-bar').classList.remove('hidden');
+  /* Cancela timer anterior se houver */
+  if (_instrAutoHideTimer) { clearTimeout(_instrAutoHideTimer); _instrAutoHideTimer = null; }
+}
+
+/* Chamado pelo engine quando o jogador começa a se mover */
+function _startInstructionAutoHide() {
+  if (_instrAutoHideTimer) return;
+  _instrAutoHideTimer = setTimeout(() => {
+    hideInstruction();
+    _instrAutoHideTimer = null;
+  }, 3000);
 }
 
 function hideInstruction() {

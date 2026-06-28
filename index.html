@@ -70,8 +70,9 @@
         <img src="" id="console-emoji-img" style="width:100%; height:auto;">
         <div class="label-tag" id="label-emoji"></div>
       </div>
-      <div class="obj collider" id="stranger" style="left:430px; top:430px; width:90px; height:130px;">
-        <img src="" id="stranger-img" style="width:100%; height:auto;">
+      <!-- hitbox pequena para colisão/near() e label, imagem visual maior acima -->
+      <div class="obj collider" id="stranger" style="left:430px; top:480px; width:90px; height:30px; overflow:visible;">
+        <img src="" id="stranger-img" style="position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:200px; height:auto; pointer-events:none;">
         <div class="label-tag" id="label-stranger"></div>
       </div>
       <div class="obj collider" id="door2" style="left:830px; top:380px; width:90px; height:140px; background-size:contain; background-repeat:no-repeat; background-position:bottom;"></div>
@@ -114,11 +115,21 @@
 </div>
 
 
+<!--
+  TensorFlow.js + Teachable Machine Image API (CDN, client-side only).
+  Nenhuma chave de API necessária. Inferência roda 100% no navegador.
+  Se estas CDNs ficarem indisponíveis, o jogo cai automaticamente no
+  enigma de liga-pontos (fallback em ai-puzzle.js).
+-->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.20.0/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8.5/dist/teachablemachine-image.min.js"></script>
+
 <script src="src/i18n/strings.js"></script>
 <script src="src/game/randomizer.js"></script>
 <script src="src/game/assets.js"></script>
 <script src="src/game/ui.js"></script>
 <script src="src/game/engine.js"></script>
+<script src="src/game/ai-puzzle.js"></script>
 <script src="src/game/rooms/room1.js"></script>
 <script src="src/game/rooms/room2.js"></script>
 <script src="src/game/rooms/room3.js"></script>

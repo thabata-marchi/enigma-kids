@@ -65,6 +65,7 @@ function loop() {
       player.y = Math.max(20, Math.min(WORLD_H - 20 - player.h, ny));
 
     document.getElementById('player').classList.add('walk');
+    _startInstructionAutoHide();
     if (Math.abs(dx) > Math.abs(dy)) player.dir = dx > 0 ? 'right' : 'left';
     else player.dir = dy > 0 ? 'down' : 'up';
   } else {
