@@ -440,7 +440,7 @@ async function submitDrawing() {
 
   /* Garante que a criança desenhou algo antes de classificar */
   const pixels    = canvas.getContext('2d').getImageData(0, 0, canvas.width, canvas.height).data;
-  const hasPixels = pixels.some((v, i) => i % 4 !== 3 && v < 250);
+  const hasPixels = pixels.some((_, i) => i % 4 === 3 && pixels[i] > 0);
   if (!hasPixels) {
     if (fb) fb.textContent = lang === 'pt' ? '✏️ DESENHE ALGO PRIMEIRO!' : '✏️ DRAW SOMETHING FIRST!';
     if (doneBtn) doneBtn.disabled = false;
