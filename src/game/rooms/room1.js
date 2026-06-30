@@ -23,7 +23,7 @@ function checkInteractionsRoom1() {
   if (state1.keyFound && !state1.doorReached && near('door1', 80)) {
     state1.doorReached = true;
     setInstruction(t('doorReached1'));
-    setTimeout(enterRoom2, 1200);
+    setTimeout(() => transitionRoom(enterRoom2), 1200);
   }
 }
 

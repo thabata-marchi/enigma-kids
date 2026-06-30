@@ -15,6 +15,16 @@ let _obstacleCache = null;
 
 function invalidateObstacleCache() { _obstacleCache = null; }
 
+/* Executa o callback após fade-out do viewport e retoma com fade-in */
+function transitionRoom(callback) {
+  const vp = document.getElementById('world-viewport');
+  vp.classList.add('room-fade');
+  setTimeout(() => {
+    callback();
+    requestAnimationFrame(() => vp.classList.remove('room-fade'));
+  }, 350);
+}
+
 function getObstacles() {
   if (_obstacleCache) return _obstacleCache;
   const els = document.querySelectorAll(`#${currentWorldId} .wall, #${currentWorldId} .collider`);
