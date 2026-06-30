@@ -26,6 +26,7 @@ function rectsOverlap(a, b) {
 
 function near(elId, range = 70) {
   const el = document.getElementById(elId);
+  if (!el) return false;
   const left = parseInt(el.style.left), top = parseInt(el.style.top);
   const cx = left + el.offsetWidth / 2, cy = top + el.offsetHeight / 2;
   const pcx = player.x + player.w / 2, pcy = player.y + player.h / 2;

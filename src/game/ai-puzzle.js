@@ -469,6 +469,9 @@ async function submitDrawing() {
 
   const predicted = await classifyDrawing(canvas);
 
+  /* Player pode ter fechado o modal enquanto classifyDrawing executava */
+  if (!document.getElementById('modal-overlay').classList.contains('active')) return;
+
   if (predicted === null) {
     openStarPuzzleFallback(onSuccess);
     return;

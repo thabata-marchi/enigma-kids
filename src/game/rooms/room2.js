@@ -167,6 +167,7 @@ function finishRoom2() {
 
 /* --- Transição para Sala 3 --- */
 function enterRoom3() {
+  suppressedId = null;
   document.getElementById('world-room2').classList.remove('active');
   document.getElementById('world-room3').classList.add('active');
   document.getElementById('world-room3').appendChild(document.getElementById('player'));
