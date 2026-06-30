@@ -11,13 +11,19 @@ let currentWorldId = 'world-room1';
 window.addEventListener('keydown', e => { keys[e.key.toLowerCase()] = true; });
 window.addEventListener('keyup',   e => { keys[e.key.toLowerCase()] = false; });
 
+let _obstacleCache = null;
+
+function invalidateObstacleCache() { _obstacleCache = null; }
+
 function getObstacles() {
+  if (_obstacleCache) return _obstacleCache;
   const els = document.querySelectorAll(`#${currentWorldId} .wall, #${currentWorldId} .collider`);
-  return Array.from(els).map(el => {
+  _obstacleCache = Array.from(els).map(el => {
     const left = parseInt(el.style.left), top = parseInt(el.style.top);
     const w = el.offsetWidth, h = el.offsetHeight;
     return { left, top, right: left + w, bottom: top + h, el };
   });
+  return _obstacleCache;
 }
 
 function rectsOverlap(a, b) {

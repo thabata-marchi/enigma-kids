@@ -131,9 +131,9 @@ async function classifyDrawing(canvas) {
 /* ============================================================
    openDrawShapePuzzle(expectedShape, onSuccess)
    ============================================================ */
-async function openDrawShapePuzzle(expectedShape, onSuccess) {
+async function openDrawShapePuzzle(expectedShape, onSuccess, triggerId) {
   modalOpenLock = true;
-  currentTriggerId = 'console-star';
+  currentTriggerId = triggerId || null;
 
   /* Guarda em variáveis de módulo — evita serializar funções em onclick */
   _currentExpectedShape = expectedShape;

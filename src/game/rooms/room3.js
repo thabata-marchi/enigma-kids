@@ -115,7 +115,7 @@ function openStarPuzzle() {
     state3.star = true;
     document.getElementById('console-star').classList.add('glow-soft');
   };
-  openDrawShapePuzzle(shapeKey, onSuccess);
+  openDrawShapePuzzle(shapeKey, onSuccess, 'console-star');
 }
 
 /*

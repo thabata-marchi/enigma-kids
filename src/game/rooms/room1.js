@@ -58,6 +58,7 @@ function answerMath(value, btn) {
 
 function enterRoom2() {
   suppressedId = null;
+  invalidateObstacleCache();
   document.getElementById('world-room1').classList.remove('active');
   document.getElementById('world-room2').classList.add('active');
   document.getElementById('world-room2').appendChild(document.getElementById('player'));
