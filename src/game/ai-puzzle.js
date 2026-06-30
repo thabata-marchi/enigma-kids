@@ -54,6 +54,9 @@ const SHAPE_DOT_POINTS = {
 let _dotMode = false;
 let _dotExpected = 0;
 
+/* Referências dos handlers ativos — necessário para removeEventListener */
+let _drawHandlers = null;
+
 /*
    SVG inline de exemplo para cada forma.
    A criança vê antes de desenhar. Estilo lousa: traço branco sobre fundo escuro.
@@ -232,6 +235,19 @@ function _renderDrawCanvas(expectedShape) {
 function _attachDrawListeners() {
   const canvas = document.getElementById('draw-canvas');
   if (!canvas) return;
+
+  /* Remove listeners anteriores antes de registrar novos */
+  if (_drawHandlers) {
+    canvas.removeEventListener('mousedown',  _drawHandlers.start, { passive: false });
+    canvas.removeEventListener('mousemove',  _drawHandlers.move,  { passive: false });
+    canvas.removeEventListener('mouseup',    _drawHandlers.end,   { passive: false });
+    canvas.removeEventListener('mouseleave', _drawHandlers.end,   { passive: false });
+    canvas.removeEventListener('touchstart', _drawHandlers.start, { passive: false });
+    canvas.removeEventListener('touchmove',  _drawHandlers.move,  { passive: false });
+    canvas.removeEventListener('touchend',   _drawHandlers.end,   { passive: false });
+    _drawHandlers = null;
+  }
+
   const ctx = canvas.getContext('2d');
   ctx.strokeStyle = '#1a1a2e';
   ctx.lineWidth   = 3;
@@ -251,6 +267,8 @@ function _attachDrawListeners() {
   function start(e) { e.preventDefault(); drawing = true; const {x,y} = pos(e); ctx.beginPath(); ctx.moveTo(x,y); }
   function move(e)  { e.preventDefault(); if (!drawing) return; const {x,y} = pos(e); ctx.lineTo(x,y); ctx.stroke(); }
   function end(e)   { e.preventDefault(); drawing = false; }
+
+  _drawHandlers = { start, move, end };
 
   canvas.addEventListener('mousedown',  start, { passive: false });
   canvas.addEventListener('mousemove',  move,  { passive: false });
